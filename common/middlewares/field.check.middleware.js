@@ -14,3 +14,25 @@ exports.signIn = {
         password: Joi.string().regex(/[a-zA-Z0-9]{3,30}/).required(),
     }),
 }
+
+exports.deleteRev = {
+    body: Joi.object({
+        prj_id: Joi.string().required(),
+    }),
+}
+
+exports.hideRev = {
+    body: Joi.object({
+        prj_id: Joi.string().required(),
+        hide: Joi.bool().required()
+    }),
+}
+
+exports.editRev = {
+    body: Joi.object({
+        prj_id: Joi.string().required(),
+        rating: Joi.string(),
+        reviewer_work: Joi.string(),
+        the_review: Joi.string()
+    }),
+}

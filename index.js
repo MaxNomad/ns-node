@@ -6,6 +6,7 @@ const app = express();
 const {ValidationError} = require('express-validation')
 const AuthorizationRouter = require('./authorization/routes.config');
 const UsersRouter = require('./users/routes.config');
+const RevRouter = require('./reviews/routes.config');
 
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -23,8 +24,10 @@ app.use(function (req, res, next) {
 app.use(express.json());
 
 app.use('/api/v1', router);
+
 AuthorizationRouter.routesConfig(router);
 UsersRouter.routesConfig(router);
+RevRouter.routesConfig(router);
 app.use(function(err, req, res, next) {
     if (err instanceof ValidationError) {
       return res.status(err.statusCode).json({error_details: err})

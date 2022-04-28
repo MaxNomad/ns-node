@@ -3,7 +3,7 @@ const playwright = require('playwright');
 const cheerio = require('cheerio');
 
 const useHeadless = false; 
-const allRevs = [];
+
 
 
 const getHtmlPlaywright = async url => {
@@ -37,7 +37,8 @@ const extractRevs = ($, url) =>
                 prj_size: $rev.find('.field-name-cost .field-item').first().text(),
                 prj_length: $rev.find('.field-name-project-length > .field-item').first().text(),
                 prj_summarry: $rev.find('.field-name-proj-description p').text(),
-                //the_review: $rev.find('.review-content').text().trim(),
+                review_date: $rev.find('.review-col-reviewtxt > .date').text(),
+                the_review: $rev.find('.field-name-client-quote > .field-item > p').first().text().trim(),
                 rating: parseFloat($rev.find('.rating-reviews > span').text()),
                 quality: parseFloat($rev.find('.group-feedback > .field-name-quality > .field-item').text()),
                 schedule: parseFloat($rev.find('.group-feedback > .field-name-schedule > .field-item').text()),
@@ -63,8 +64,8 @@ const extractRate = ($) => {
     };
 };
 
-
-module.exports = Clutch = async url => {
+exports.Clutch = async (url) => {
+    const allRevs = [];
     const html = await getHtml((url + "#reviews"));
     const $ = cheerio.load(html);
     const content = extractRevs($, url);
@@ -72,5 +73,6 @@ module.exports = Clutch = async url => {
     allRevs.push(...content);
     return {list: allRevs, tolal_rate: data.tolal_rate};
 };
+
 
 
