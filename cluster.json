@@ -1,0 +1,18 @@
+{
+    "apps": [
+      {
+        "instances" : "max",
+        "exec_mode" : "cluster",
+        "script": "./index.js",
+        "name": "ns-back",
+        "node_args": [ "--harmony" ],
+        "env": {
+          "PORT": 3000,
+          "NODE_ENV": "production"
+        },
+        "error_file": "./logs/ns.err.log",
+        "out_file": "./logs/ns.out.log"
+      }
+    
+    ]
+  }

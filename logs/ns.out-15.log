@@ -1,0 +1,22 @@
+MongoDB connection with retry
+app listening at port 3000
+MongoDB is connected
+MongoDB connection with retry
+app listening at port 3000
+MongoDB is connected
+MongoDB connection with retry
+app listening at port 3000
+MongoDB is connected
+MongoDB connection with retry
+app listening at port 3000
+MongoDB is connected
+MongoDB connection with retry
+app listening at port 3000
+MongoDB is connected
+{
+  rate: '4.9',
+  changed: 2022-05-02T14:32:23.000Z,
+  _id: 626abb0e8610846060bec6e0,
+  __v: 0,
+  added: 2022-04-28T16:04:30.310Z
+}
